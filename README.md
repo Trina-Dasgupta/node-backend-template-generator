@@ -6,20 +6,28 @@
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D14.0.0-brightgreen.svg)](https://nodejs.org/)
 
 A powerful CLI tool to generate professional, production-ready **Node.js backend templates** in seconds.  
-Choose your database, features, and get a complete backend with industry best practices.
+Choose your database, architecture, and features — and get a complete backend with best practices baked in.
 
 ---
 
-## ✨ Features
+## ⚡ Quick Overview
 
-- 🚀 **Multiple Databases** – MongoDB (Mongoose), MySQL/PostgreSQL (Sequelize), Prisma, or Database-less  
-- 🔐 **Authentication** – JWT with refresh tokens, bcrypt password hashing  
-- 📁 **File Upload** – Multer with validation & multiple file support  
-- 📧 **Email Service** – Nodemailer with ready templates (welcome, password reset, notifications)  
-- 📚 **API Documentation** – Auto-generated Swagger/OpenAPI docs  
-- 🐳 **Docker Support** – Dockerfile + docker-compose with database setup  
-- 🛡️ **Security** – Helmet, CORS, rate limiting, input validation  
-- ⚡ **Modern JS** – ES Modules & CommonJS support  
+**Node Backend Generator** helps you **generate production-ready Node.js backends** in seconds.  
+Choose between **Monolithic or Microservices architecture**, with built-in features like authentication, Docker setup, Swagger docs, file uploads, and more.
+
+---
+
+## ✨ Key Features
+
+- 🏗️ **Architecture Choice** – Monolithic or Microservices  
+- 🗄️ **Multiple Databases** – MongoDB, PostgreSQL, MySQL, or DB-less  
+- 🔐 **Built-in Auth** – JWT, bcrypt, refresh tokens  
+- 🐳 **Docker Ready** – Full containerization support  
+- 📚 **Auto Documentation** – Swagger/OpenAPI  
+- 🛡️ **Security** – Helmet, CORS, rate limiting  
+- 📧 **Email Service** – Nodemailer with templates  
+- 📁 **File Upload** – Multer with validation  
+- ⚡ **Modern JavaScript** – ES Modules & CommonJS support  
 - 🎯 **Production Ready** – Error handling, logging, environment config  
 
 ---
@@ -34,7 +42,6 @@ npx node-backend-generator@latest
 ### Global Installation
 ```bash
 npm install -g node-backend-generator
-
 create-node-backend
 ```
 
@@ -46,46 +53,141 @@ npx create-node-backend
 
 ---
 
-## 🧭 Usage
+## 🎯 Interactive Setup
 
-### 1️⃣ Run the Generator
-```bash
-npx node-backend-generator@latest
+The CLI guides you through:
+
 ```
+? Project name: my-api
+? Architecture:
+❯ Monolithic
+  Microservices
 
-### 2️⃣ Follow the Interactive Prompts
-You’ll be guided through setting up your project:
+? Database:
+❯ MongoDB (Mongoose)
+  PostgreSQL (Prisma)
+  MySQL (Sequelize)
+  None
 
-```bash
-Enter your project name: my-awesome-api
-```
-
-**Example Interactive Setup:**
-```
-? Enter your project name: my-awesome-api
-? Choose module system:
-❯ ES Modules (MJS)
-  CommonJS (CJS)
-
-? Choose database ORM:
-❯ Mongoose (MongoDB)
-  Sequelize (MySQL/PostgreSQL)
-  Prisma (Multi-database)
-  None (API only)
-
-? Select additional features:
-◉ Authentication (JWT)
-◉ API Documentation (Swagger)
-◯ File Upload (Multer)
-◯ Email Service (Nodemailer)
-◯ Docker Support
-◉ Rate Limiting
-◉ Input Validation
+? Features:
+◉ Authentication | ◉ Docker | ◉ API Docs
+◉ File Upload   | ◉ Email  | ◉ Rate Limiting
 ```
 
 ---
 
-### 3️⃣ Generated Project Structure
+## 📁 Generated Project Structure
+
+```
+my-api/
+├── src/
+│   ├── controllers/   # Business logic
+│   ├── models/        # Database models
+│   ├── routes/        # API endpoints
+│   ├── middlewares/   # Auth, validation
+│   └── config/        # DB, environment
+├── docker-compose.yml # Full stack setup
+├── package.json       # Scripts & dependencies
+└── .env               # Environment config
+```
+
+---
+
+## 🔧 Get Started
+
+```bash
+cd my-api
+npm install
+cp .env.example .env
+npm run dev
+```
+
+Visit: [http://localhost:3000/api-docs](http://localhost:3000/api-docs) for API documentation.
+
+---
+
+## 🐳 Docker Setup
+
+```bash
+# Start everything
+docker-compose up -d
+
+# Scale microservices
+docker-compose up -d --scale auth-service=2 --scale user-service=2
+```
+
+---
+
+## 📚 API Examples
+
+### 🔐 Authentication
+```bash
+# Register
+curl -X POST http://localhost:3000/api/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{"name":"John","email":"john@test.com","password":"secret"}'
+
+# Login
+curl -X POST http://localhost:3000/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{"email":"john@test.com","password":"secret"}'
+```
+
+### 📁 File Upload
+```js
+const formData = new FormData();
+formData.append('file', file);
+
+fetch('/api/upload/single', {
+  method: 'POST',
+  headers: { 'Authorization': 'Bearer token' },
+  body: formData
+});
+```
+
+---
+
+## 🛠️ Customization
+
+- **Add Routes:** Create under `src/routes/` + logic in `src/controllers/`
+- **Add Models:** Define in `src/models/`
+- **Add Middleware:** Add to `src/middlewares/` and import globally or per-route
+
+---
+
+## 🤝 Support
+
+- 📘 **Docs:** [http://localhost:3000/api-docs](http://localhost:3000/api-docs)
+- 🐞 **Issues:** GitHub Issues
+- 📄 **License:** MIT License
+
+---
+
+<div align="center">
+
+### Start building your next great API in seconds! 🎉  
+Generated with ❤️ by **Node Backend Generator**
+
+</div>
+
+---
+
+## 🧩 Full Feature Reference (Detailed Section)
+
+> For users who want the complete setup details, here’s the expanded guide below ⬇️
+
+---
+
+### 🧭 Usage
+```bash
+npx node-backend-generator@latest
+```
+
+Follow the setup prompts, select your preferences, and your backend will be ready instantly.
+
+---
+
+### 🏗️ Example Structure (Detailed)
 ```
 my-awesome-api/
 ├── server.js
@@ -109,29 +211,10 @@ my-awesome-api/
 
 ---
 
-### 4️⃣ Get Started with Your New Project
-```bash
-cd my-awesome-api
-npm install
-cp .env.example .env
-
-# Prisma only
-npx prisma generate
-npx prisma db push
-
-# Start development server
-npm run dev
-
-# Or production
-npm start
-```
-
----
-
-## 🎯 Available Scripts
+### 🧰 Available Scripts
 ```bash
 npm start          # Start production server
-npm run dev        # Start development server with nodemon
+npm run dev        # Development with nodemon
 npm test           # Run tests
 npm run lint       # Lint code
 npm run lint:fix   # Auto-fix lint issues
@@ -139,45 +222,31 @@ npm run lint:fix   # Auto-fix lint issues
 
 ---
 
-## 📚 API Endpoints
-
-### 🔐 Authentication (if enabled)
+### 🔐 Authentication Usage
+```json
+POST /api/auth/register
+{
+  "name": "John Doe",
+  "email": "john@example.com",
+  "password": "securepassword"
+}
 ```
-POST /api/auth/register      # Register user
-POST /api/auth/login         # Login user
-GET  /api/auth/profile       # Get logged-in profile
-```
-
-### 👤 User Routes
-```
-GET /api/users
-GET /api/users/:id
-```
-
-### 📁 File Upload (if enabled)
-```
-POST /api/upload/single
-POST /api/upload/multiple
+```json
+POST /api/auth/login
+{
+  "email": "john@example.com",
+  "password": "securepassword"
+}
 ```
 
-### 📧 Email Service (if enabled)
+Add JWT token:
 ```
-POST /api/email/test
-POST /api/email/password-reset
-POST /api/email/welcome
-```
-
-### 🧰 Utilities
-```
-GET /health
-GET /api-docs
+Authorization: Bearer <your_jwt_token_here>
 ```
 
 ---
 
-## 🔧 Configuration
-
-### Environment Variables (`.env`)
+### 🧾 Environment Variables
 ```env
 # Server
 NODE_ENV=development
@@ -185,7 +254,6 @@ PORT=3000
 
 # Database
 MONGODB_URI=mongodb://localhost:27017/your-db
-# OR
 DATABASE_URL="mysql://root:password@localhost:3306/your-db"
 
 # JWT
@@ -201,19 +269,16 @@ SMTP_PASS=your-password
 
 ---
 
-## 🗄️ Database Setup
+### 🧱 Database Setup
 
-### MongoDB (Mongoose)
-1. Install MongoDB or use Atlas.  
-2. Update `MONGODB_URI` in `.env`.  
-3. Done! No schema migration needed.
+**MongoDB (Mongoose)**
+- Update `MONGODB_URI` in `.env`
+- Done.
 
-### MySQL / PostgreSQL (Sequelize)
-1. Install the respective DB.  
-2. Create your database.  
-3. Update `.env` credentials.  
+**MySQL / PostgreSQL (Sequelize)**
+- Update `.env` credentials.
 
-### Prisma
+**Prisma**
 ```bash
 npx prisma generate
 npx prisma db push
@@ -221,61 +286,16 @@ npx prisma db push
 
 ---
 
-## 🐳 Docker Support
-If you selected Docker:
+### 🐳 Docker Support (Detailed)
 ```bash
-docker-compose up -d        # Start DB & app
+docker-compose up -d
 docker build -t my-backend .
 docker run -p 3000:3000 my-backend
 ```
 
 ---
 
-## 🔐 Authentication Usage
-
-### Register a User
-```json
-POST /api/auth/register
-{
-  "name": "John Doe",
-  "email": "john@example.com",
-  "password": "securepassword"
-}
-```
-
-### Login
-```json
-POST /api/auth/login
-{
-  "email": "john@example.com",
-  "password": "securepassword"
-}
-```
-
-### Protected Routes
-Include JWT token in headers:
-```
-Authorization: Bearer <your_jwt_token_here>
-```
-
----
-
-## 📁 File Upload Example
-```js
-const formData = new FormData();
-formData.append('file', fileInput.files[0]);
-
-fetch('/api/upload/single', {
-  method: 'POST',
-  headers: { Authorization: 'Bearer your-token' },
-  body: formData,
-});
-```
-
----
-
-## 📧 Email Service Example
-### Send Test Email
+### 📧 Email Example
 ```json
 POST /api/email/test
 {
@@ -283,55 +303,23 @@ POST /api/email/test
 }
 ```
 
-### Request Password Reset
-```json
-POST /api/email/password-reset
-{
-  "email": "user@example.com"
-}
-```
-
 ---
 
-## 🛠️ Customization
-
-### Add a New Route
-- Create a controller in `src/controllers/`
-- Add a route in `src/routes/`
-- Import it in `server.js`
-
-### Add a New Model
-- Add a model in `src/models/`
-- Use it in your controller logic
-
-### Add Middleware
-- Create in `src/middlewares/`
-- Register globally or per-route in `server.js`
-
----
-
-## 🤝 Support
-
-- 📘 **Docs:** Visit `/api-docs` after starting your server  
-- 🐞 **Issues:** [GitHub Issues](https://github.com/)  
-- 💬 **FAQ:** See in docs or discussions  
+### 🛠️ Extend Functionality
+- **Controllers:** Add in `src/controllers`
+- **Routes:** Add in `src/routes`
+- **Middlewares:** Add in `src/middlewares`
 
 ---
 
 ## 📄 License
-MIT License — see [LICENSE](./LICENSE) for details.
-
----
-
-## 🙏 Contributing
-We welcome contributions!  
-Please read our **Contributing Guide** before submitting PRs.
+MIT License — see [LICENSE](./LICENSE)
 
 ---
 
 <div align="center">
 
 ✨ **Happy Coding!** ✨  
-Generated with ❤️ by **Trina Dasgupta**
+Built with ❤️ by **Trina Dasgupta**
 
 </div>

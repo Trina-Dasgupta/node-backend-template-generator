@@ -1,6 +1,6 @@
 {
   "name": "backend-architecture-generator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generate production-ready Node.js backend architectures - choose between monolithic or microservices patterns with API Gateway, Docker, databases, and more",
   "type": "module",
   "bin": {
