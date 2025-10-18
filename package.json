@@ -1,6 +1,6 @@
 {
   "name": "node-backend-generator",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "description": "🚀 CLI tool to generate professional Node.js backend templates with best practices, multiple databases, authentication, and production-ready features",
   "main": "bin/cli.js",
   "type": "module",
