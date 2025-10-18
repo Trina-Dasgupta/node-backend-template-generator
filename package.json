@@ -1,7 +1,7 @@
 {
   "name": "node-backend-generator",
-  "version": "1.0.0",
-  "description": "CLI tool to generate Node.js backend templates with best practices",
+  "version": "1.1.0",
+  "description": "🚀 CLI tool to generate professional Node.js backend templates with best practices, multiple databases, authentication, and production-ready features",
   "main": "bin/cli.js",
   "type": "module",
   "bin": {
@@ -18,10 +18,35 @@
     "generator",
     "cli",
     "express",
-    "microservices"
+    "mongodb",
+    "mysql",
+    "postgresql",
+    "mongoose",
+    "sequelize",
+    "prisma",
+    "authentication",
+    "jwt",
+    "rest-api",
+    "boilerplate",
+    "scaffolding",
+    "crud",
+    "mongodb",
+    "docker",
+    "swagger",
+    "documentation",
+    "typescript",
+    "javascript",
+    "backend-framework",
+    "api-generator",
+    "node-template",
+    "express-generator",
+    "backend-boilerplate"
   ],
-  "author": "Your Name",
-  "license": "MIT",
+  "author": {
+    "name": "Trina Dasgupta",
+    "email": "trinadasgupta.official@gmail.com",
+    "url": "https://github.com/Trina-Dasgupta"
+  },
   "dependencies": {
     "chalk": "^5.3.0",
     "inquirer": "^8.2.6",
