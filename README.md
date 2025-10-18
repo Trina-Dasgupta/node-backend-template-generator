@@ -332,6 +332,6 @@ Please read our **Contributing Guide** before submitting PRs.
 <div align="center">
 
 ✨ **Happy Coding!** ✨  
-Generated with ❤️ by **Node Backend Generator**
+Generated with ❤️ by **Trina Dasgupta**
 
 </div>
